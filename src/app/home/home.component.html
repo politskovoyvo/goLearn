@@ -1,0 +1,51 @@
+<ActionBar xmlns="">
+    <Label text="Home"></Label>
+</ActionBar>
+
+<TabView>
+    <StackLayout *tabItem="{title: 'История', iconSource: ''}">
+        <ng-container *ngTemplateOutlet="history"></ng-container>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Группы', iconSource: ''}">
+        <ng-container *ngTemplateOutlet="groupContent"></ng-container>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Список слов', iconSource: ''}">
+        <ng-container *ngTemplateOutlet="translateWordList"></ng-container>
+    </StackLayout>
+</TabView>
+
+<ng-template #history>
+    <RadCalendar
+            [eventSource]="calendarEvents"
+            eventsViewMode="Inline"
+            selectionMode="Single"
+            viewMode="Month"
+            transitionMode="Stack"
+            locale="en-US"
+    ></RadCalendar>
+</ng-template>
+
+<ng-template #groupContent>
+    <StackLayout orientation="horizontal">
+        <Label text="Второй!"></Label>
+    </StackLayout>
+</ng-template>
+
+<ng-template #translateWordList>
+    <StackLayout orientation="horizontal">
+        <ListView [items]="items$ | async">
+            <ng-template let-country="item">
+                <FlexboxLayout flexDirection="row">
+                    <Label [text]="country.origin" class="t-12"
+                           verticalAlignment="center"
+                           style="width: 50%"
+                    ></Label>
+                    <Label [text]="country.translate" class="t-12"
+                           verticalAlignment="center"
+                           style="width: 50%"
+                    ></Label>
+                </FlexboxLayout>
+            </ng-template>
+        </ListView>
+    </StackLayout>
+</ng-template>

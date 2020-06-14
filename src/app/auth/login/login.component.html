@@ -1,0 +1,25 @@
+<ActionBar>
+    <Label text="SIGN IN"></Label>
+</ActionBar>
+<FlexboxLayout class="container" justifyContent="center">
+    <form [formGroup]="form">
+        <StackLayout orientation="vertical">
+            <StackLayout orientation="vertical" class="text-view-container">
+                <Label text="EMAIL"></Label>
+                <TextField hint="ivanov@gmail.ru"
+                           formControlName="email">
+                </TextField>
+            </StackLayout>
+            <StackLayout orientation="vertical" class="text-view-container">
+                <Label text="PASSWORD"></Label>
+                <TextField hint="*********"
+                           formControlName="password">
+                </TextField>
+            </StackLayout>
+            <Button text="Sign In" (tap)="onSubmit()"></Button>
+            <StackLayout orientation="vertical">
+                <Label *ngFor="let error of errors" [text]="error"></Label>
+            </StackLayout>
+        </StackLayout>
+    </form>
+</FlexboxLayout>

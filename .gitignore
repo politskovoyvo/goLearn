@@ -1,0 +1,20 @@
+node_modules/
+
+.idea/
+
+dist/
+
+# VCode
+
+.vscode
+
+#tmp
+
+package-lock.json
+
+yarn.lock
+
+coverage/
+
+.DS_Store
+e2e/credentials.json
